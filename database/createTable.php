@@ -13,6 +13,18 @@ $deletePosts->execute();
 $deleteUsearTable = $connect->prepare('drop table if exists users');
 $deleteUsearTable->execute();
 
+$deleteFriendListTable = $connect->prepare('drop table if exists frendsList');
+$deleteFriendListTable->execute();
+
+$deleteUaerGalleryTable = $connect->prepare('drop table if exists usersGallery');
+$deleteUaerGalleryTable->execute();
+
+$deleteCommentTable = $connect->prepare('drop table if exists comments');
+$deleteCommentTable->execute();
+
+$deleteLikeTable = $connect->prepare('drop table if exists likes');
+$deleteLikeTable->execute();
+
 
 // create user table
 $createUserTable= $connect->prepare('create table users(
@@ -61,13 +73,46 @@ $createFriendsList=$connect->prepare('create table frendsList(
 $createFriendsList->execute();
 
 
-// Gallery table
-/*
-CREATE TABLE IF NOT EXISTS usersGallery (
+
+$createUserGallery=$connect->prepare('CREATE TABLE IF NOT EXISTS usersGallery (
     id int(11) NOT null AUTO_INCREMENT,
     user_id bigint(20) unsigned,
     images varchar(100),
     PRIMARY KEY (id),
     foreign key(user_id) references users(id) on delete cascade
-);
+);');
+$createUserGallery->execute();
+
+
+
+
+$createComment=$connect->prepare('CREATE TABLE IF NOT EXISTS comments(
+    id serial,
+    post_id bigint(20) unsigned,
+    user_id bigint(20) unsigned,
+    user_name varchar(50),
+    content varchar(200),
+    PRIMARY KEY (`id`),
+    FOREIGN KEY(`post_id`) REFERENCES `posts`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);');
+$createComment->execute();
+
+
+$createLikes=$connect->prepare('CREATE TABLE IF NOT EXISTS likes(
+    id serial,
+    post_id bigint(20) unsigned,
+    user_id bigint(20) unsigned,
+    user_name varchar(50),
+    PRIMARY KEY (`id`),
+    FOREIGN KEY(`post_id`) REFERENCES `posts`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);');
+$createLikes->execute();
+
+
+
+// Gallery table
+/*
+
 */

@@ -38,3 +38,13 @@
 .cz-footer {
     z-index: 1;
 }
+
+
+/* ------------------------------- from deshbord page ------------------------- */
+
+.comment {
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-bottom-color: white;
+}

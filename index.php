@@ -6,6 +6,7 @@ $url = trim( parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/' );
 
 session_start(); // Start the session.
 
+// set all routes
 $routes = [
     'deshbord' => './views/deshbord.php',
     'login' => './views/login.php',
@@ -22,7 +23,9 @@ $routes = [
     'changeImage' => './core/changeProfileImage.php',
     'test' => './views/test.php',
     'deletePost' => './core/deletePost.php',
-    'addFriend' => './core/addFriend.php'
+    'addFriend' => './core/addFriend.php',
+    'unFriend' => './core/unFriend.php',
+    'writeComment' => './core/writeComment.php'
 ];
 
  
@@ -41,7 +44,7 @@ if($url == null){
             require '404error.html'; // otherwise call 404 page
         }
     }else{
-        require "$basedPage"; // otherwise call 404 page
+        require "$basedPage"; // otherwise call based page
     }
 }
 

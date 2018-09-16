@@ -167,11 +167,11 @@ require 'header.php';
                   </form>
                 </div>
                 <div class='col-sm-9'>
-                  <form action="" method="post">
+                  <form action="writeComment" method="post">
                     <textarea name="comment" id="comment" cols="30" rows='2' class='form-control my-2' placeholder='Write your comment...' rows="10"></textarea>
                     <input type="submit" value="Submit" name='submit' class='btn btn-outline-light float-right px-5'>
                     <input type="hidden" name="postId" value='<?php echo $data->id; ?>'>
-                    <input type="hidden" name="userId" value='<?php echo $_SESSION['userId']; ?>'>
+                    <input type="hidden" name="loc" value='deshbord'>
                   </form>
                 </div>
               </div>
@@ -179,6 +179,16 @@ require 'header.php';
               <div class='row'>
                 <div class='col-sm-12'>
                   <!-- show comment -->
+                  <?php 
+                  $getComments=getDataUsingOrderAndId($connect,'comments',$data->id,'post_id');
+
+                  foreach($getComments as $comment):
+                  ?>
+                  <div class='comment mt-2'>
+                  <a href="profile?id=<?=$comment->user_id;?>"><strong class='text-white'><?=$comment->user_name;?></strong></a>
+                  <p class='text-white'><?=$comment->content;?></p>
+                  </div>
+                  <?php endforeach;?>
                 </div>
               </div>
 
@@ -218,7 +228,7 @@ require 'header.php';
                               <a href="profile?id=<?=$frinde->id;?>"><h5 class='text-info my-0'><strong><?=$frinde->sur_name?></strong></h5></a>
                               <p class='text-info my-0' style='font-size: 10px;'><?=$frinde->email;?></p>
                               <p class='text-info my-0' style='font-size: 10px;'><?=$frinde->mobile;?></p>
-                              <a href="" class='btn btn-outline-primary mt-2 py-1' style='font-size: 12px;'>Add Friend</a>
+                              <a href="addFriend?loc=deshbord&friendId=<?=$frinde->id;?>" class='btn btn-outline-primary mt-2 py-1' style='font-size: 12px;'>Add Friend</a>
                             </div>
                         </div>
                     </li>

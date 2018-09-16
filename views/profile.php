@@ -69,7 +69,7 @@ require 'header.php'; // require header file
                 <a href="addFriend?friendId=<?=$userId;?>" class='btn btn-primary float-right ml-2'>Following</a>
             <?php endif; ?>
             <?php if($tempV):?>
-                <button type="submit" class='btn btn-primary float-right ml-2'>Unfriend</button>
+                <a href="unFriend?loc=friends&friendId=<?=$userId;?>" class='btn btn-primary float-right ml-2'>Unfriend</a>
             <?php endif; ?>
         <?php endif; ?>
         <!-- check, if it is current user profile page -->
@@ -194,7 +194,7 @@ require 'header.php'; // require header file
                     <!-- discribe all data -->
                     <?php foreach($posts as $post): ?>
                     <div class='card mb-5 border-white'  style='background: rgb(31, 58, 69);' id="<?php echo $post->id; // set post id for calling?>">
-                    <h5 class='card-header text-light'><?=$post->title;?></h5>
+                        <h5 class='card-header text-light'><?=$post->title;?></h5>
                         <?php if(strlen($post->imsge) > 1): ?>
                         <div class='text-center m-3'>
                         <img class="card-img-top"  style='max-height: 714px; width: 476px;' src="<?=$post->imsge;?>" alt="Card image cap">
@@ -204,6 +204,22 @@ require 'header.php'; // require header file
                             <p><?=$post->content;?></p>
                             <button class='btn btn-info'>Like ( <?php echo ($post->likes>0?$post->likes:0);?> )</button>
                             <button class='btn btn-info'>Comment ( <?php echo ($post->comment!=null?1:0);?> )</button>
+
+                            <div class='row mt-3'>
+                                <div class='col-sm-12'>
+                                <!-- show comment -->
+                                <?php 
+                                $getComments=getDataUsingOrderAndId($connect,'comments',$post->id,'post_id');
+
+                                foreach($getComments as $comment):
+                                ?>
+                                <div class='comment mt-2'>
+                                <a href="profile?id=<?=$comment->user_id;?>"><strong class='text-white'><?=$comment->user_name;?></strong></a>
+                                <p class='text-white'><?=$comment->content;?></p>
+                                </div>
+                                <?php endforeach;?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <?php endforeach;?>

@@ -54,6 +54,7 @@ function showTempProfile(id, name, image, mobile, gender, birthDay, email) {
     $("#email").text(email); // set email
     $("#pro-link").attr("href", 'profile?id=' + id); // set user profile link
     $("#add-link").attr("href", 'addFriend?loc=pubFriends&friendId=' + id); // set user profile link
+    $("#delete-link").attr("href", 'unFriend?loc=friends&friendId=' + id); // set user profile link
 }
 
 
