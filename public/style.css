@@ -1,0 +1,294 @@
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* style li for nav bar*/
+
+li {
+    display: inline;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* style h4 for nav bar*/
+
+.nav-head {
+    background: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+
+/* */
+
+.nav-img img {
+    margin: 0px;
+    padding: 0px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+
+/* --------------- from profile.php page --------------------*/
+
+
+/* customize cover picture */
+
+.bg-cover {
+    /* The image used */
+    background-image: url("../images/cover/bg-cover.jpg");
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    /* -webkit-filter: blur(5px);
+    /* Safari 6.0 - 9.0 */
+    /* filter: blur(5px); */
+}
+
+
+/* customize profile picture */
+
+.pro-pic {
+    margin: 0px;
+    padding: 0px;
+    width: 250px;
+    height: 250px;
+    border: 3;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+}
+
+
+/* set border and width in containar 'left side' */
+
+.left-side {
+    margin: 0px;
+    padding: 0px 20px 0px 20px;
+    box-sizing: border-box;
+    /* border-right: 2px;
+    border-right-style: solid;
+    border-right-color: rgba(0, 0, 0, 0.452); */
+    width: 40%;
+}
+
+
+/* set border and width in containar 'right side' */
+
+.right-side {
+    margin: 0px;
+    padding: 0px 20px 0px 20px;
+    box-sizing: border-box;
+    width: 60%;
+}
+
+
+/* customized left side information box content */
+
+.information-content {
+    margin: 10px 0px 10px 0px;
+    text-align: left;
+    display: block;
+}
+
+
+/* customized left side information box content text */
+
+.information-content h4 {
+    display: block;
+}
+
+.card-pro-img {
+    height: 160px;
+    width: 160px;
+}
+
+.d-frnd-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.d-frnd-list a {
+    text-decoration: none;
+}
+
+.pro-card:hover {
+    box-shadow: 0 0 5px 10px rgba(53, 56, 59, 0.692);
+    transition: all 0.9s;
+}
+
+
+/* ------------------------ from profile page -------------------------------- */
+
+.changePic {
+    display: none;
+    margin: 0px;
+    padding: 10px;
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 70%;
+}
+
+
+/* #custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+#custom-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+} */
+
+
+/* ------------------------ from login page -------------------------------- */
+
+.top-image {
+    margin: auto;
+    padding: 0px;
+    width: 200px;
+    height: 200px;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    box-sizing: border-box;
+}
+
+.top-image img {
+    height: 80%;
+    width: 80%;
+}
+
+
+/* ---------------------------- from deshbord page ------------------------------- */
+
+.content {
+    margin-top: 160px;
+}
+
+.about-side {
+    position: fixed;
+    top: 30px;
+    left: 3rem !important;
+}
+
+
+/*  ----------------------    For image gallery -------------------------------- */
+
+
+/* Style the Image Used to Trigger the Modal */
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {
+    opacity: 0.7;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content (Image) */
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+
+/* Add Animation - Zoom in the Modal */
+
+.modal-content,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
