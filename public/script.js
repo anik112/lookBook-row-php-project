@@ -17,6 +17,7 @@ var sticky = header.offsetTop;
 
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
+    // when scroll down then remove and add some class
     if (window.pageYOffset > sticky) {
         header.classList.remove("mx-3");
         header.classList.add("nav-head");
@@ -40,8 +41,9 @@ function stateTempProCard() {
 }
 
 
-// from friend list
+// ------------------- from friend list
 
+// set profile information from databse using jquery.
 function showTempProfile(id, name, image, mobile, gender, birthDay, email) {
 
     document.getElementById("temp-p-d").style = 'block';
@@ -60,8 +62,13 @@ function showTempProfile(id, name, image, mobile, gender, birthDay, email) {
 
 
 
+// ------------------------ from profile page
 
-
+// get comment button,  when comment button click then 
+// comment show, next click comment hide.
+$('button.comment-button').on('click', function() {
+    $('div.comment-box').fadeToggle(900);
+});
 
 
 
@@ -73,25 +80,18 @@ function showTempProfile(id, name, image, mobile, gender, birthDay, email) {
 // // -------------------------- For image gallery ------------------------------
 
 // // Get the modal
-// var modal = document.getElementById('myModal');
+var modal = document.getElementById('myModal');
 
-// // Get the image and insert it inside the modal - use its "alt" text as a caption
-// var img = document.getElementById('myImg');
-// img.onclick = function() {
-//     var getImageId = document.querySelector('.modal-content').id;
-//     console.log(getImageId);
-//     var modalImg = document.getElementById(getImageId);
-
-//     modal.style.display = "block";
-//     modalImg.src = this.src;
-
-//     console.log('hello...')
-// }
+// if click img then show image in popup
+function showImg(pSrc) {
+    var modalImg = document.getElementById('img');
+    modal.style.display = "block";
+    modalImg.src = pSrc;
+}
 
 // // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
+var span = document.getElementsByClassName("close")[0];
 // // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//     modal.style.display = "none";
-// }
+span.onclick = function() {
+    modal.style.display = "none";
+}

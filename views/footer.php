@@ -1,8 +1,9 @@
 
 <!-- footer part -->
-<footer class='row text-muted border-top cz-footer'>
-    <div class='col-lg-12 my-5 mx-5'>
-      <h1>paulanik112@gmail.com</h1>
+<footer class='row text-muted border-top cz-footer bg-info' style='margin: 0px; padding: 0px;'>
+    <div class='col-lg-12 my-2 mx-2 text-center text-white'>
+      <strong>LookBook </strong>
+      <h6>&copy;All rights reserved paulanik112@gmail.com</h6>
     </div>
 </footer>
 

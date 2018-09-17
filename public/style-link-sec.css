@@ -48,3 +48,10 @@
     border-style: solid;
     border-bottom-color: white;
 }
+
+
+/* ---------------------- from profile page -------------------- */
+
+.comment-box {
+    display: none;
+}

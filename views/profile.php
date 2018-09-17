@@ -15,6 +15,13 @@ if(isset($_SESSION['userId'])){$activeId=$_SESSION['userId'];}
 // call profile page from core DIR
 require './core/profile.php';
 
+
+// get friend id from friendlist table
+$myFrindes=getDataUsingColNameAndId($connect,'frendslist',$activeId,'user_id');
+
+// get friend data from friend list
+$frindes=getFriendsData($connect,$userId); 
+
 // declare page titles and user image
 $pageName='My Profile';
 // then require header part
@@ -50,9 +57,6 @@ require 'header.php'; // require header file
         <?php if($activeId != $userId):?>
 
             <?php 
-            
-            // get friend id from friendlist table
-            $myFrindes=getDataUsingColNameAndId($connect,'frendslist',$activeId,'user_id');
             $tempV=null;
 
             foreach($myFrindes as $fnd){
@@ -109,7 +113,7 @@ require 'header.php'; // require header file
 <div class='mx-3'>
     <!-- main contant -->
     <div class='row'>
-
+    <!-- show about me.  my all information -->
         <div class='col-lg-3'>
 
             <div class='card px-2'>
@@ -191,38 +195,42 @@ require 'header.php'; // require header file
         <div class='col-lg-5' id='custom-scroll'>
             <!-- check, there have any post -->
             <?php if(empty($posts)){echo '<h3 class="text-warning"> ----  No post in available: create post ---- </h3>';}?>
-                    <!-- discribe all data -->
-                    <?php foreach($posts as $post): ?>
-                    <div class='card mb-5 border-white'  style='background: rgb(31, 58, 69);' id="<?php echo $post->id; // set post id for calling?>">
-                        <h5 class='card-header text-light'><?=$post->title;?></h5>
-                        <?php if(strlen($post->imsge) > 1): ?>
-                        <div class='text-center m-3'>
-                        <img class="card-img-top"  style='max-height: 714px; width: 476px;' src="<?=$post->imsge;?>" alt="Card image cap">
-                        </div>
-                        <?php endif; ?>
-                        <div class='card-body text-light px-3'>
-                            <p><?=$post->content;?></p>
-                            <button class='btn btn-info'>Like ( <?php echo ($post->likes>0?$post->likes:0);?> )</button>
-                            <button class='btn btn-info'>Comment ( <?php echo ($post->comment!=null?1:0);?> )</button>
+                <!-- discribe all data -->
+                <?php foreach($posts as $post): ?>
 
-                            <div class='row mt-3'>
-                                <div class='col-sm-12'>
-                                <!-- show comment -->
-                                <?php 
-                                $getComments=getDataUsingOrderAndId($connect,'comments',$post->id,'post_id');
+                <?php 
+                // get comment from comment table
+                $getComments=getDataUsingOrderAndId($connect,'comments',$post->id,'post_id');
+                ?>
 
-                                foreach($getComments as $comment):
-                                ?>
+                <div class='card mb-5 border-white'  style='background: rgb(31, 58, 69);' id="<?php echo $post->id; // set post id for calling?>">
+                    <h5 class='card-header text-light'><?=$post->title;?></h5>
+                    <?php if(strlen($post->imsge) > 1): ?>
+                    <div class='text-center m-3'>
+                    <img class="card-img-top"  style='max-height: 714px; width: 476px;' src="<?=$post->imsge;?>" alt="Card image cap">
+                    </div>
+                    <?php endif; ?>
+                    <div class='card-body text-light px-3'>
+                        <p><?=$post->content;?></p>
+                        <button class='btn btn-info'>Like ( <?php echo ($post->likes>0?$post->likes:0);?> )</button>
+                        <button class='btn btn-info comment-button'>Comment ( <?php echo sizeof($getComments);?> )</button>
+
+                        <div class='row mt-3 comment-box'>
+                            <div class='col-sm-12'>
+                            <!-- show comment -->
+                            <?php
+                            foreach($getComments as $comment):
+                            ?>
                                 <div class='comment mt-2'>
                                 <a href="profile?id=<?=$comment->user_id;?>"><strong class='text-white'><?=$comment->user_name;?></strong></a>
                                 <p class='text-white'><?=$comment->content;?></p>
                                 </div>
-                                <?php endforeach;?>
-                                </div>
+                            <?php endforeach;?>
                             </div>
                         </div>
                     </div>
-                    <?php endforeach;?>
+                </div>
+                <?php endforeach;?>
         </div>
 
         <div class='col-lg-4'>
@@ -251,11 +259,7 @@ require 'header.php'; // require header file
                 </div>
             </div>
 
-            <?php 
-                // get friend data from friend list
-                $frindes=getFriendsData($connect,$userId); 
-            ?>
-
+            <!-- show my friend -->
             <div class='card border-light mt-5'>
                 <div class='card-header bg-light'><h4><strong>Friends...</strong></h4></div>
             </div>
