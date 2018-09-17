@@ -7,7 +7,7 @@ $userId=(isset($_SESSION['userId']))?$_SESSION['userId']:0;
 // get user name from session
 $userName=(isset($_SESSION['name']))?$_SESSION['name']:null;
 
-if(isset($_POST['submit']) && $userId>0 && $userName!=null){
+if(isset($_POST['comment']) && $userId>0 && $userName!=null){
 
     $postId=$_POST['postId']; // get post id 
     $content=$_POST['comment']; // get comment

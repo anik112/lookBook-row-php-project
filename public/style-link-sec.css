@@ -49,6 +49,19 @@
     border-bottom-color: white;
 }
 
+.post-header-img {
+    margin: 0px;
+    margin-right: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: teal;
+}
+
 
 /* ---------------------- from profile page -------------------- */
 

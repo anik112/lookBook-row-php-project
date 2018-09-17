@@ -148,28 +148,29 @@ require 'header.php';
         // if($data->user_id == $fnd->friends_id):
         ?>
 
-          <div class="card my-5" style='background: rgb(31, 58, 69);'>
-            <h4 class="card-header">
-              <a href="profile?id=<?=$data->user_id;?>" class='text-light'><strong><?=$data->user_name;?></strong></a>
+          <div class="card my-5">
+            <h4 class="card-header bg-white">
+              <img src="../images/cover/avatar.png" alt="img" srcset="" class='post-header-img'>
+              <a href="profile?id=<?=$data->user_id;?>" class='text-primary'><strong><?=$data->user_name;?></strong></a>
             </h4>
             <?php if(strlen($data->imsge) > 1): ?>
               <img class="card-img-top img-thumbnail" src="<?=$data->imsge;?>" alt="Card image cap">
             <?php endif; ?>
             <div class="card-body">
-              <h4 class="card-title text-light"><?=$data->title;?></h4>
-              <p class="card-text my-4 text-light"><?=$data->content;?></p>
-
-              <div class='row my-2 py-3 border-top border-light'>
-                <div class='col-sm-3 my-2 text-center'>
+              <h4 class="card-title text-black"><?=$data->title;?></h4>
+              <p class="card-text my-4 text-secondary"><?=$data->content;?></p>
+              <div class='row my-2 py-3 border-top border-muted'>
+                <div class='col-sm-2 text-center'>
                   <form action="" method="post">
-                    <input type="button" value="+" name='like' class='btn btn-outline-light'>
-                    <p class='text-light'><strong>[ 0 ]</strong></p>
+                    <input type="button" value="+" name='like' class='btn btn-outline-info'>
+                    <p class='text-info'><strong>[ 0 ]</strong></p>
                   </form>
                 </div>
-                <div class='col-sm-9'>
+                <div class='col-sm-10'>
                   <form action="writeComment" method="post">
-                    <textarea name="comment" id="comment" cols="30" rows='2' class='form-control my-2' placeholder='Write your comment...' rows="10"></textarea>
-                    <input type="submit" value="Submit" name='submit' class='btn btn-outline-light float-right px-5'>
+                    <input id="comment" type="text" class="form-control" name="comment" placeholder="Write your comment...">
+                    <!-- <textarea name="comment" id="comment" cols="30" rows='1' class='form-control' placeholder='Write your comment...' rows="10"></textarea>
+                    <input type="submit" value="Submit" name='submit' class='btn btn-outline-info float-right px-5'> -->
                     <input type="hidden" name="postId" value='<?php echo $data->id; ?>'>
                     <input type="hidden" name="loc" value='deshbord'>
                   </form>
@@ -185,8 +186,8 @@ require 'header.php';
                   foreach($getComments as $comment):
                   ?>
                   <div class='comment mt-2'>
-                  <a href="profile?id=<?=$comment->user_id;?>"><strong class='text-white'><?=$comment->user_name;?></strong></a>
-                  <p class='text-white'><?=$comment->content;?></p>
+                  <a href="profile?id=<?=$comment->user_id;?>"><strong class='text-priamry'><?=$comment->user_name;?></strong></a>
+                  <p class='text-info'><?=$comment->content;?></p>
                   </div>
                   <?php endforeach;?>
                 </div>
