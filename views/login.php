@@ -57,15 +57,14 @@ if(isset($_POST['submit'])){
     <title>Login</title>
     <link rel="stylesheet" href="../public/bootstrap.min.css">
     <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="../public/style-link-sec.css">
 </head>
-<body>
-    <div class='container' style='text-align: center;'>
-    <div class='title my-3'><h1>Login Here</h1></div>
-        <div class='row my-3'>
-            <div class='col-lg-3'></div>
-            <div class='col-lg-6'>
-
-            <div class='top-image my-5'><img src="../images/icon/user-solid.svg" alt="top image"></div>
+<body class='con-login'>
+    <div class='login-box my-5 mx-5' style='text-align: center;'>
+    <div class='title text-light'><h1><Strong>Look</Strong><small>Book</small></h1></div>
+        <div class='row mx-2 my-2'>
+            <div class='col-lg-12'>
+            <img class='my-3' src="../images/cover/avatar.png" alt="top image">
 
                 <?php if(!empty($error)): ?>
                 <div class="alert alert-warning">
@@ -76,8 +75,8 @@ if(isset($_POST['submit'])){
                     <div class='form-group'>
                         <input type="text" name="userName" id="" class='form-control my-2' placeholder='User name'>
                         <input type="password" name="userPassword" id="" class='form-control my-2' placeholder='Password'>
-                        <input type="submit" name='submit' value="Login" class='btn btn-outline-primary px-5 my-3'>
-                        <a href="registration"><h5>Regstration now...</h5></a>
+                        <input type="submit" name='submit' value="Login" class='btn btn-outline-light px-5 my-3'>
+                        <a href="registration" class='text-white'><h5>Regstration now</h5></a>
                     </div>
                 </form>
             </div>

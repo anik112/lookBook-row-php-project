@@ -17,25 +17,33 @@ if(isset($_GET['submit'])){
 }
 
 // declare page titles and user image
-$titles='My Profile';
-// $image='../images/images(5).jpg';
+$pageName='Search Friends';
 // then require header part
-$headerName='user';
-$footerName='user';
 require 'header.php';
 ?>
 
 <div class='my-5 mx-5'>
 <?php foreach($data as $singleData): ?>
-<div class='row my-3'>
-    <div class='col-lg-6 px-5'>
-        <a href="profile?id=<?=$singleData->id;?>" style='color: black;'><h3><?php echo $singleData->sur_name;?></h3></a>
+<div class='row my-3 border-bottom'>
+    <div class='col-lg-1' style='margin: 0px; padding: 0px;'>
+    <img class='search-pro-img' src="
+            <?php if(($singleData->image) != null){
+                echo $singleData->image; // set image
+            }else{
+                echo './images/avatar.png'; // defult image
+            }?>
+            " alt='profile image' srcset="">
+    </div>
+    <div class='col-lg-5'>
+        <a href="profile?id=<?=$singleData->id;?>" style='color: black;'>
+            <h3 class='mt-4'><?php echo $singleData->sur_name;?></h3>
+        </a>
     </div>
     <div class='col-lg-3'>
-        <?php echo $singleData->email;?>
+        <p class='mt-4'><?php echo $singleData->email;?></p>
     </div>
     <div class='col-lg-3'>
-        <?php echo $singleData->mobile;?>
+        <p class='mt-4'><?php echo $singleData->mobile;?></p>
     </div>
 </div>
 <?php endforeach; ?>

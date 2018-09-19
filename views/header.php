@@ -59,7 +59,7 @@ asd
             <li class='mx-3'><a href="profile" class='text-info'><strong>PROFILE</strong></a></li>
             <li class='mx-3'><a href="pubFriends" class='text-info'><strong>FRIENDS</strong></a></li>
             <li class='mx-3'><a href="posts" class='text-info'><strong>CREATE POST</strong></a></li>
-            <li class='mx-3'><a href="" class='text-info'><strong>NOTIFICATION</strong></a></li>
+            <li class='mx-3'><a href="notification" class='text-info'><strong>NOTIFICATION</strong></a></li>
             <li class='mx-3'><a href="gallery" class='text-info'><strong>GALLERY</strong></a></li>
             <li class='mx-3'><a href="friends" class='text-info'><strong>MY FRIENDS</strong></a></li>
         </ul>

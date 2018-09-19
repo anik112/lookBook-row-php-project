@@ -33,14 +33,17 @@
 }
 
 
-/* ------------------------------ from footer part  ------------------------------*/
+/* ------------------------------- from deshbord page ------------------------- */
 
-.cz-footer {
-    z-index: 1;
+.content {
+    margin-top: 160px;
 }
 
-
-/* ------------------------------- from deshbord page ------------------------- */
+.about-side {
+    position: fixed;
+    top: 30px;
+    left: 3rem !important;
+}
 
 .comment {
     border: 0px;
@@ -63,8 +66,244 @@
 }
 
 
+/* this class use in deshbord and profile page */
+
+.love-btn {
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 0;
+}
+
+
+/* this class use in deshbord and profile page */
+
+.love-btn img:hover {
+    opacity: 0.7;
+}
+
+
+/* this class use in deshbord and profile page */
+
+.likes-view {
+    border: 0px;
+    background-color: white;
+    color: red;
+}
+
+
+/* this class use in deshbord and profile page */
+
+.likes-view:hover {
+    cursor: pointer;
+}
+
+
+/* this class use in deshbord and profile page */
+
+.show-likes {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* this class use in deshbord and profile page */
+
+.sub-tab {
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 600px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+
+/* this class use in deshbord and profile page */
+
+.pro-img-in-likes {
+    margin: 0px;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
 /* ---------------------- from profile page -------------------- */
+
+
+/* customize cover picture */
+
+.bg-cover {
+    /* The image used */
+    background-image: url("../images/cover/bg-cover.jpg");
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    /* -webkit-filter: blur(5px);
+    /* Safari 6.0 - 9.0 */
+    /* filter: blur(5px); */
+}
+
+
+/* customize profile picture */
+
+.pro-pic {
+    margin: 0px;
+    padding: 0px;
+    width: 250px;
+    height: 250px;
+    border: 3;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+}
+
+
+/* set border and width in containar 'left side' */
+
+.left-side {
+    margin: 0px;
+    padding: 0px 20px 0px 20px;
+    box-sizing: border-box;
+    /* border-right: 2px;
+    border-right-style: solid;
+    border-right-color: rgba(0, 0, 0, 0.452); */
+    width: 40%;
+}
+
+
+/* set border and width in containar 'right side' */
+
+.right-side {
+    margin: 0px;
+    padding: 0px 20px 0px 20px;
+    box-sizing: border-box;
+    width: 60%;
+}
+
+
+/* customized left side information box content */
+
+.information-content {
+    margin: 10px 0px 10px 0px;
+    text-align: left;
+    display: block;
+}
+
+
+/* customized left side information box content text */
+
+.information-content h4 {
+    display: block;
+}
+
+.card-pro-img {
+    height: 160px;
+    width: 160px;
+}
+
+.d-frnd-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.d-frnd-list a {
+    text-decoration: none;
+}
+
+.pro-card:hover {
+    box-shadow: 0 0 5px 10px rgba(53, 56, 59, 0.692);
+    transition: all 0.9s;
+}
+
+.changePic {
+    display: none;
+    margin: 0px;
+    padding: 10px;
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 70%;
+}
+
+
+/* #custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+#custom-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+} */
 
 .comment-box {
     display: none;
+}
+
+
+/* ------------------------ from login page -------------------------------- */
+
+
+/* set login backround and set image position */
+
+.con-login {
+    background-image: url('../images/cover/background-biker-clouds-207171.jpg');
+    /* set background image */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.login-box {
+    margin: 0px;
+    padding: 0px;
+    width: 400px;
+    background-color: rgba(53, 56, 59, 0.692);
+    border-radius: 10px;
+}
+
+.login-box img {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 50%;
 }

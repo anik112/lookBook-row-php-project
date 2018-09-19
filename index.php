@@ -25,7 +25,9 @@ $routes = [
     'deletePost' => './core/deletePost.php',
     'addFriend' => './core/addFriend.php',
     'unFriend' => './core/unFriend.php',
-    'writeComment' => './core/writeComment.php'
+    'writeComment' => './core/writeComment.php',
+    'love' => './core/addLove.php',
+    'notification' => './views/notification.php'
 ];
 
  

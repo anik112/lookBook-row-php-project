@@ -44,166 +44,6 @@ li {
 }
 
 
-/* --------------- from profile.php page --------------------*/
-
-
-/* customize cover picture */
-
-.bg-cover {
-    /* The image used */
-    background-image: url("../images/cover/bg-cover.jpg");
-    /* Full height */
-    height: 100%;
-    width: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
-    /* -webkit-filter: blur(5px);
-    /* Safari 6.0 - 9.0 */
-    /* filter: blur(5px); */
-}
-
-
-/* customize profile picture */
-
-.pro-pic {
-    margin: 0px;
-    padding: 0px;
-    width: 250px;
-    height: 250px;
-    border: 3;
-    border-style: solid;
-    border-color: white;
-    border-radius: 10px;
-}
-
-
-/* set border and width in containar 'left side' */
-
-.left-side {
-    margin: 0px;
-    padding: 0px 20px 0px 20px;
-    box-sizing: border-box;
-    /* border-right: 2px;
-    border-right-style: solid;
-    border-right-color: rgba(0, 0, 0, 0.452); */
-    width: 40%;
-}
-
-
-/* set border and width in containar 'right side' */
-
-.right-side {
-    margin: 0px;
-    padding: 0px 20px 0px 20px;
-    box-sizing: border-box;
-    width: 60%;
-}
-
-
-/* customized left side information box content */
-
-.information-content {
-    margin: 10px 0px 10px 0px;
-    text-align: left;
-    display: block;
-}
-
-
-/* customized left side information box content text */
-
-.information-content h4 {
-    display: block;
-}
-
-.card-pro-img {
-    height: 160px;
-    width: 160px;
-}
-
-.d-frnd-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.d-frnd-list a {
-    text-decoration: none;
-}
-
-.pro-card:hover {
-    box-shadow: 0 0 5px 10px rgba(53, 56, 59, 0.692);
-    transition: all 0.9s;
-}
-
-
-/* ------------------------ from profile page -------------------------------- */
-
-.changePic {
-    display: none;
-    margin: 0px;
-    padding: 10px;
-    background-color: white;
-    width: 300px;
-    height: 200px;
-    position: absolute;
-    top: 100px;
-    left: 70%;
-}
-
-
-/* #custom-scroll::-webkit-scrollbar {
-    width: 6px;
-    background-color: #F5F5F5;
-}
-
-#custom-scroll::-webkit-scrollbar-thumb {
-    background-color: #000000;
-}
-
-#custom-scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-} */
-
-
-/* ------------------------ from login page -------------------------------- */
-
-.top-image {
-    margin: auto;
-    padding: 0px;
-    width: 200px;
-    height: 200px;
-    border: 5px;
-    border-style: solid;
-    border-color: black;
-    border-radius: 50%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    box-sizing: border-box;
-}
-
-.top-image img {
-    height: 80%;
-    width: 80%;
-}
-
-
-/* ---------------------------- from deshbord page ------------------------------- */
-
-.content {
-    margin-top: 160px;
-}
-
-.about-side {
-    position: fixed;
-    top: 30px;
-    left: 3rem !important;
-}
-
-
 /*  ----------------------    For image gallery -------------------------------- */
 
 
@@ -291,4 +131,22 @@ li {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+/* ------------------------------ from footer part  ------------------------------*/
+
+.cz-footer {
+    z-index: 1;
+}
+
+
+/* --------------------------- from search panel ----------------------------- */
+
+.search-pro-img {
+    margin: 5px;
+    padding: 0px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }

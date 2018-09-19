@@ -62,7 +62,7 @@ function showTempProfile(id, name, image, mobile, gender, birthDay, email) {
 
 
 
-// ------------------------ from profile page
+// ------------------------ from profile page -----------------------
 
 // get comment button,  when comment button click then 
 // comment show, next click comment hide.
@@ -94,4 +94,18 @@ var span = document.getElementsByClassName("close")[0];
 // // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+}
+
+
+
+// ---------------------------- from deshbord page ------------------
+
+// function for show like in page
+function showLikes(idName) {
+    document.getElementById(idName).style.display = "block";
+}
+
+// function for hide like in page
+function closeLike(idName) {
+    document.getElementById(idName).style.display = "none";
 }

@@ -1,8 +1,6 @@
 
 <?php
 
-//session_start(); // Start the session.
-
 // call database page
 require './database/dbConnect.php';
 
@@ -150,33 +148,68 @@ require 'header.php';
 
           <div class="card my-5">
             <h4 class="card-header bg-white">
+              <!-- show post author name and img -->
               <img src="../images/cover/avatar.png" alt="img" srcset="" class='post-header-img'>
               <a href="profile?id=<?=$data->user_id;?>" class='text-primary'><strong><?=$data->user_name;?></strong></a>
             </h4>
+            <!-- if image have in database then show image in post -->
             <?php if(strlen($data->imsge) > 1): ?>
               <img class="card-img-top img-thumbnail" src="<?=$data->imsge;?>" alt="Card image cap">
             <?php endif; ?>
             <div class="card-body">
+              <!-- show post title -->
               <h4 class="card-title text-black"><?=$data->title;?></h4>
+              <!-- show post content -->
               <p class="card-text my-4 text-secondary"><?=$data->content;?></p>
               <div class='row my-2 py-3 border-top border-muted'>
+
+                <!-- like post option -->
                 <div class='col-sm-2 text-center'>
-                  <form action="" method="post">
-                    <input type="button" value="+" name='like' class='btn btn-outline-info'>
-                    <p class='text-info'><strong>[ 0 ]</strong></p>
-                  </form>
+                  <!-- show icon for like -->
+                  <a href="love?postId=<?=$data->id;?>&loc=deshbord&friendId=<?=$data->user_id;?>" class='love-btn'><img src="../images/icon/love.png" alt="love" srcset=""></a>
+                  <!-- show all likes -->
+                  <div class='show-likes' id='view-likes<?=$data->id;?>' style='display: none;'>
+                    <div class='sub-tab'>
+                    <!-- botton for close this content -->
+                    <button class='btn btn-outline-danger float-right' onclick="closeLike('view-likes<?=$data->id;?>')">X</button>
+                    <div class='row py-2 border-bottom'>
+                        <div class='col-sm-2'><h5>Image</h5></div>
+                        <div class='col-sm-2'><h5>ID</h5></div>
+                        <div class='col-sm-8'><h5>Name</h5></div>
+                    </div>
+                      <?php
+                        $count=0; // count number how many like in this post
+                        // get all like from database using post id
+                        $getLike=getDataUsingOrderAndId($connect,'likes',$data->id,'post_id');
+                        // loop for get single data from object
+                        foreach($getLike as $like):
+                          $count++; // count likes
+                      ?>
+                      <!-- show liker name, img, and id -->
+                      <div class='row my-2 py-2 border-bottom'>
+                        <div class='col-sm-2'><img class='pro-img-in-likes' src="../images/cover/avatar.png" alt="pro img" srcset=""></div>
+                        <div class='col-sm-2'><?=$like->user_id;?></div>
+                        <div class='col-sm-8'><a href="profile?id=<?=$like->user_id;?>"><?=$like->user_name;?></a></div>
+                      </div>
+                      <?php endforeach; ?>
+                    </div>
+                  </div>
+                  <!-- button for show liker information -->
+                  <button class='likes-view' onclick="showLikes('view-likes<?=$data->id;?>')" id='likes-view'>[ <?=$count;?> ]</button>
                 </div>
+                <!-- show comment box -->
                 <div class='col-sm-10'>
+                  <!-- create from for wirite comment in database -->
                   <form action="writeComment" method="post">
                     <input id="comment" type="text" class="form-control" name="comment" placeholder="Write your comment...">
-                    <!-- <textarea name="comment" id="comment" cols="30" rows='1' class='form-control' placeholder='Write your comment...' rows="10"></textarea>
-                    <input type="submit" value="Submit" name='submit' class='btn btn-outline-info float-right px-5'> -->
                     <input type="hidden" name="postId" value='<?php echo $data->id; ?>'>
+                    <input type="hidden" name="friendId" value='<?php echo $data->user_id; ?>'>
                     <input type="hidden" name="loc" value='deshbord'>
                   </form>
                 </div>
               </div>
 
+              <!-- show all comment -->
               <div class='row'>
                 <div class='col-sm-12'>
                   <!-- show comment -->

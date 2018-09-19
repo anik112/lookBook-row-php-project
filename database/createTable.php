@@ -25,6 +25,9 @@ $deleteCommentTable->execute();
 $deleteLikeTable = $connect->prepare('drop table if exists likes');
 $deleteLikeTable->execute();
 
+$deleteNotificationTable = $connect->prepare('drop table if exists notification');
+$deleteNotificationTable->execute();
+
 
 // create user table
 $createUserTable= $connect->prepare('create table users(
@@ -109,6 +112,19 @@ $createLikes=$connect->prepare('CREATE TABLE IF NOT EXISTS likes(
     FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 );');
 $createLikes->execute();
+
+
+
+$createNotification=$connect->prepare('CREATE TABLE IF NOT EXISTS notification(
+    id serial,
+    friend_id bigint(20) unsigned,
+    user_id bigint(20) unsigned,
+    post_id bigint(20) unsigned,
+    friend_name varchar(50),
+    content varchar(50),
+    PRIMARY KEY (`id`)
+);');
+$createNotification->execute();
 
 
 

@@ -204,15 +204,60 @@ require 'header.php'; // require header file
                 ?>
 
                 <div class='card mb-5 border-white'  style='background: rgb(31, 58, 69);' id="<?php echo $post->id; // set post id for calling?>">
+                
+
+                    <!-- show post image in popup -->
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- The Close Button -->
+                        <span class="close">&times;</span>
+                        <!-- Modal Content (The Image) -->
+                        <img class="modal-content" id="img">
+                        <!-- Modal Caption (Image Text) -->
+                        <div id="caption"></div>
+                    </div> 
+                    
+                
                     <h5 class='card-header text-light'><?=$post->title;?></h5>
                     <?php if(strlen($post->imsge) > 1): ?>
                     <div class='text-center m-3'>
-                    <img class="card-img-top"  style='max-height: 714px; width: 476px;' src="<?=$post->imsge;?>" alt="Card image cap">
+                    <img class="card-img-top" id='myImg' onclick='showImg("<?=$post->imsge;?>")' style='max-height: 714px; width: 476px;' src="<?=$post->imsge;?>" alt="Card image cap">
                     </div>
                     <?php endif; ?>
+
+                    
                     <div class='card-body text-light px-3'>
+
+                        <!-- show all likes -->
+                        <div class='show-likes' id='view-likes<?=$post->id;?>' style='display: none;'>
+                            <div class='sub-tab'>
+                            <!-- botton for close this content -->
+                            <button class='btn btn-outline-danger float-right' onclick="closeLike('view-likes<?=$post->id;?>')">X</button>
+                            <div class='row py-2 border-bottom'>
+                                <div class='col-sm-2'><h5>Image</h5></div>
+                                <div class='col-sm-2'><h5>ID</h5></div>
+                                <div class='col-sm-8'><h5>Name</h5></div>
+                            </div>
+                            <?php
+                                $count=0; // count number how many like in this post
+                                // get all like from database using post id
+                                $getLike=getDataUsingOrderAndId($connect,'likes',$post->id,'post_id');
+                                // loop for get single data from object
+                                foreach($getLike as $like):
+                                $count++; // count likes
+                            ?>
+                            <!-- show liker name, img, and id -->
+                            <div class='row my-2 py-2 border-bottom'>
+                                <div class='col-sm-2'><img class='pro-img-in-likes' src="../images/cover/avatar.png" alt="pro img" srcset=""></div>
+                                <div class='col-sm-2'><?=$like->user_id;?></div>
+                                <div class='col-sm-8'><a href="profile?id=<?=$like->user_id;?>"><?=$like->user_name;?></a></div>
+                            </div>
+                            <?php endforeach; ?>
+                            </div>
+                        </div>
+
                         <p><?=$post->content;?></p>
-                        <button class='btn btn-info'>Like ( <?php echo ($post->likes>0?$post->likes:0);?> )</button>
+                        <button class='btn btn-info' onclick="showLikes('view-likes<?=$post->id;?>')">Like ( <?=$count;?> )</button>
                         <button class='btn btn-info comment-button'>Comment ( <?php echo sizeof($getComments);?> )</button>
 
                         <div class='row mt-3 comment-box'>
