@@ -22,6 +22,11 @@ if(isset($_POST['submit'])){
     $allData=$getData->fetchAll(PDO::FETCH_OBJ); // petch data in a array.
     // print_r($allData);
 
+
+    
+
+
+
     // get single data fom array.
     foreach($allData as $data){
         $databasePassword = $data->password; // get password which come from database.
@@ -38,6 +43,32 @@ if(isset($_POST['submit'])){
         $_SESSION['userId']=$userId; // set sesson variable user Id.
         $_SESSION['name']=$name; // set sessin variable user name.
         $_SESSION['image']=$image; // set session variable user profile image.
+
+
+        echo $userId;
+        // write quriey for get data from database.
+        $getActiveStatus = $connect->prepare("SELECT * FROM active_status WHERE user_id='$userId';");
+        $getActiveStatus->execute(); //query execute.
+        $activeStatus=$getActiveStatus->fetchAll(PDO::FETCH_OBJ); // petch data in a array.
+
+        // check active satatus if active sattus alrady create then update status.
+        // otherwise create a new sattus.
+        if($activeStatus == null){
+            // add active status in database
+            $insertActiveStatus = $connect->prepare("INSERT INTO `active_status`(`user_id`, `last_activity_date`, `last_activity_time`, `login_status`)
+            VALUES ($userId,CURDATE(),CURTIME(),true);");
+            $insertActiveStatus->execute() or die('Sorry data not insert.. ative status insert'); // statement execute
+        }else{
+            // update active status in database
+            $updateActiveStatus = $connect->prepare("UPDATE `active_status` SET 
+            `last_activity_date`=CURDATE(),
+            `last_activity_time`=CURTIME(),
+            `login_status`=true
+            WHERE user_id=$userId");
+            $updateActiveStatus->execute() or die('Sorry data not insert.. ative status update'); // statement execute
+        }
+
+
         header("Location: /deshbord"); // set url in go to deshbord.
     }else{
         $error='sorry your password is incorrect. please try more.';

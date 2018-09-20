@@ -1,152 +1,163 @@
-html {
-    margin: 0px;
-    padding: 0px;
-}
-
-body {
-    margin: 0px;
-    padding: 0px;
-}
-
-
-/* style li for nav bar*/
-
-li {
-    display: inline;
-    margin: 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-
-/* style h4 for nav bar*/
-
-.nav-head {
-    background: white;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-}
-
-
-/* */
-
-.nav-img img {
-    margin: 0px;
-    padding: 0px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
-}
-
-
-/*  ----------------------    For image gallery -------------------------------- */
-
-
-/* Style the Image Used to Trigger the Modal */
-
-#myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#myImg:hover {
-    opacity: 0.7;
-}
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content (Image) */
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 700px;
-    max-height: 700px;
-}
-
-
-/* Add Animation - Zoom in the Modal */
-
-.modal-content,
-#caption {
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-@keyframes zoom {
-    from {
-        transform: scale(0)
+    html {
+        margin: 0px;
+        padding: 0px;
     }
-    to {
-        transform: scale(1)
+    
+    body {
+        margin: 0px;
+        padding: 0px;
     }
-}
-
-
-/* The Close Button */
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-/* ------------------------------ from footer part  ------------------------------*/
-
-.cz-footer {
-    z-index: 1;
-}
-
-
-/* --------------------------- from search panel ----------------------------- */
-
-.search-pro-img {
-    margin: 5px;
-    padding: 0px;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-}
+    /*  ----------------------    Form header part -------------------------------- */
+    /* style li for nav bar*/
+    
+    li {
+        display: inline;
+        margin: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    /* style h4 for nav bar*/
+    
+    .nav-head {
+        background: white;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1;
+    }
+    
+    .notification-model {
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 50px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    /* */
+    
+    .nav-img img {
+        margin: 0px;
+        padding: 0px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+    }
+    
+    .link-btn {
+        background: white;
+        border: none;
+        color: #17a2b8
+    }
+    
+    .link-btn:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: rgb(17, 122, 139);
+    }
+    /*  ----------------------    For image gallery -------------------------------- */
+    /* Style the Image Used to Trigger the Modal */
+    
+    #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    #myImg:hover {
+        opacity: 0.7;
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/ opacity */
+    }
+    /* Modal Content (Image) */
+    
+    .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 700px;
+        max-height: 700px;
+    }
+    /* Add Animation - Zoom in the Modal */
+    
+    .modal-content,
+    #caption {
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+    
+    @keyframes zoom {
+        from {
+            transform: scale(0)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+    /* The Close Button */
+    
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /* ------------------------------ from footer part  ------------------------------*/
+    
+    .cz-footer {
+        z-index: 1;
+    }
+    /* --------------------------- from search panel ----------------------------- */
+    
+    .search-pro-img {
+        margin: 5px;
+        padding: 0px;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }

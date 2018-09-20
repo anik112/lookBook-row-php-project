@@ -131,4 +131,17 @@ $createNotification->execute();
 // Gallery table
 /*
 
+
+
+CREATE TABLE IF NOT EXISTS active_status(
+    id serial,
+    user_id bigint(20) unsigned,
+    last_activity varchar(50) NOT null,
+    login_status boolean not null,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);
+
+INSERT INTO `active_status`(`user_id`, `last_activity_date`, `last_activity_time`, `login_status`) VALUES (13,CURDATE(),CURTIME(),false);
+
 */

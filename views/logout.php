@@ -1,5 +1,22 @@
 <?php 
 
+// requier database connection file
+require './database/dbConnect.php';
+
+$userId=(isset($_SESSION['userId']))?$_SESSION['userId']:0;
+
+if($userId>0){
+    // update active status in database
+    $updateActiveStatus = $connect->prepare("UPDATE `active_status` SET 
+    `last_activity_date`=CURDATE(),
+    `last_activity_time`=CURTIME(),
+    `login_status`=false
+    WHERE user_id=$userId");
+    $updateActiveStatus->execute() or die('Sorry data not insert.. ative status update'); // statement execute
+}
+
+
+
 // remove all session variables
 session_unset();
 

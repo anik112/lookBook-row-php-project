@@ -109,3 +109,16 @@ function showLikes(idName) {
 function closeLike(idName) {
     document.getElementById(idName).style.display = "none";
 }
+
+
+// ---------------------------- from header page ------------------
+
+// function for show like in page
+function showNotifi(idName) {
+    document.getElementById(idName).style.display = "block";
+}
+
+// function for hide like in page
+function closeNotifi(idName) {
+    document.getElementById(idName).style.display = "none";
+}

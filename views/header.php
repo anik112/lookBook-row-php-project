@@ -59,9 +59,89 @@ asd
             <li class='mx-3'><a href="profile" class='text-info'><strong>PROFILE</strong></a></li>
             <li class='mx-3'><a href="pubFriends" class='text-info'><strong>FRIENDS</strong></a></li>
             <li class='mx-3'><a href="posts" class='text-info'><strong>CREATE POST</strong></a></li>
-            <li class='mx-3'><a href="notification" class='text-info'><strong>NOTIFICATION</strong></a></li>
+            <li class='mx-3'><button onclick="showNotifi('notification-model')" class='link-btn'><strong>NOTIFICATION</strong></button></li>
             <li class='mx-3'><a href="gallery" class='text-info'><strong>GALLERY</strong></a></li>
             <li class='mx-3'><a href="friends" class='text-info'><strong>MY FRIENDS</strong></a></li>
+            <li class='mx-3'><a href="" class='text-info'><strong>ACTIVE</strong></a></li>
         </ul>
     </div>
 </div>
+
+
+<!-- -------------------- show notification page in popup ------------------- -->
+
+<?php
+// get user id from session
+$userId=(isset($_SESSION['userId']))?$_SESSION['userId']:0;
+
+// get friend id from friendlist table
+$notifications=getDataUsingOrderAndId($connect,'notification',$userId,'user_id');
+?>
+
+<div id='notification-model' class='notification-model' style="display: none;">
+<div class='container'>
+    <div class='card'>
+        <div class='card-header bg-primary'>
+            <h4 class='float-left text-light'>Notification</h4>
+            <button class='btn btn-outline-light float-right' onclick="closeNotifi('notification-model')">X</button>
+        </div>
+        <div class='card-body'>
+            <?php foreach($notifications as $notification): // get all notificatiion from database.?>
+
+            <div class='card my-2'>
+                <h5 class='card-header bg-info text-light py-1'>
+                <?php
+
+                    $friendRequestContent=null; // declare msg variable
+                    $commentContent=null; // declare msg variable
+                    $likeContent=null; // declare msg variable
+
+                    // check if notification is friend request then
+                    if($notification->content == 'friend_request'){
+                        echo "You have new friend is $notification->friend_name."; // set notificarion header
+                        // set notification massage
+                        $friendRequestContent="<strong>$notification->friend_name</strong> is uor new friend. See her profile and reach her post and comment her post.";
+                    }
+                    // other check notification is comment then
+                    elseif($notification->content == 'comment'){
+                        echo "You have new comment from $notification->friend_name."; // set notification header
+                        // set notification massage
+                        $commentContent="<strong>$notification->friend_name</strong> id comment in your photo. See this comment and give her comment reply.";
+                    }
+                    // otherwise notification is like then
+                    else{
+                        echo "$notification->friend_name Love in your post."; // set notification header
+                        // set notification massage
+                        $likeContent="<strong>$notification->friend_name</strong> is new love in your post. See her activity.";
+                    }
+                ?>
+                </h5>
+                <div class='card-body py-1'>
+                <p class='text-info'>
+                <?php
+                    // check notification massage is empty are not?
+                    if(!empty($friendRequestContent)){
+                        // is not empty then show massage
+                        echo "<a href='profile?id=$notification->friend_id'>$friendRequestContent</a>";
+                    }
+                    // check notification massage is empty are not?
+                    elseif(!empty($commentContent)){
+                        // is not empty then show massage
+                        echo "<a href='profile#$notification->post_id'>$commentContent</a>";
+                    }
+                    // check notification massage is empty are not?
+                    else{
+                        // is not empty then show massage
+                        echo "<a href='profile#$notification->post_id'>$likeContent</a>";
+                    }
+                ?>
+                </p>
+                </div>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- -------------------- end notification page in popup ------------------- -->
