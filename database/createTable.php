@@ -28,6 +28,9 @@ $deleteLikeTable->execute();
 $deleteNotificationTable = $connect->prepare('drop table if exists notification');
 $deleteNotificationTable->execute();
 
+$deleteActiveStatus = $connect->prepare('drop table if exists active_status');
+$deleteActiveStatus->execute();
+
 
 // create user table
 $createUserTable= $connect->prepare('create table users(
@@ -115,32 +118,38 @@ $createLikes->execute();
 
 
 
-$createNotification=$connect->prepare('CREATE TABLE IF NOT EXISTS notification(
+$createLoginStatus=$connect->prepare('CREATE TABLE IF NOT EXISTS active_status(
     id serial,
-    friend_id bigint(20) unsigned,
     user_id bigint(20) unsigned,
-    post_id bigint(20) unsigned,
-    friend_name varchar(50),
-    content varchar(50),
-    PRIMARY KEY (`id`)
+    last_activity_date date NOT null,
+    last_activity_time time not null,
+    login_status boolean not null,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 );');
-$createNotification->execute();
+$createLoginStatus->execute();
+
+
+
 
 
 
 // Gallery table
 /*
-
-
-
-CREATE TABLE IF NOT EXISTS active_status(
+CREATE TABLE IF NOT EXISTS massage(
     id serial,
     user_id bigint(20) unsigned,
-    last_activity varchar(50) NOT null,
-    login_status boolean not null,
+    friends_id bigint(20) unsigned,
+    friends_name VARCHAR(50) NOT NULL,
+    massage_date date NOT null,
+    massage_time time not null,
+    massage varchar(200),
     PRIMARY KEY (`id`),
     FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 );
+
+
+
 
 INSERT INTO `active_status`(`user_id`, `last_activity_date`, `last_activity_time`, `login_status`) VALUES (13,CURDATE(),CURTIME(),false);
 

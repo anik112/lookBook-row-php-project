@@ -27,7 +27,10 @@ $routes = [
     'unFriend' => './core/unFriend.php',
     'writeComment' => './core/writeComment.php',
     'love' => './core/addLove.php',
-    'notification' => './views/notification.php'
+    'notification' => './views/notification.php',
+    'active' => './views/chat.php',
+    'massage' => './core/sendMassage.php',
+    'chatTemp' => './views/chatTemp.php'
 ];
 
  

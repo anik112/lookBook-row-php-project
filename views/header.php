@@ -62,7 +62,7 @@ asd
             <li class='mx-3'><button onclick="showNotifi('notification-model')" class='link-btn'><strong>NOTIFICATION</strong></button></li>
             <li class='mx-3'><a href="gallery" class='text-info'><strong>GALLERY</strong></a></li>
             <li class='mx-3'><a href="friends" class='text-info'><strong>MY FRIENDS</strong></a></li>
-            <li class='mx-3'><a href="" class='text-info'><strong>ACTIVE</strong></a></li>
+            <li class='mx-3'><a href="active" class='text-info'><strong>ACTIVE</strong></a></li>
         </ul>
     </div>
 </div>

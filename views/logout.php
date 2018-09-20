@@ -2,9 +2,10 @@
 
 // requier database connection file
 require './database/dbConnect.php';
-
+// get user id from session
 $userId=(isset($_SESSION['userId']))?$_SESSION['userId']:0;
 
+// if session id exists then update active satatus
 if($userId>0){
     // update active status in database
     $updateActiveStatus = $connect->prepare("UPDATE `active_status` SET 
