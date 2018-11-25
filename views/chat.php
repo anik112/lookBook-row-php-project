@@ -17,13 +17,25 @@ require 'header.php';
 
 <div class='col-lg-4'>
     <?php foreach($frindes as $friend): ?>
-    <a href="chatTemp?friendId=<?=$friend->id;?>"><?=$friend->sur_name;?></a>
+    <button onclick="showMassages(<?=$friend->id;?>)"><?=$friend->sur_name;?></button>
     <?php endforeach; ?>
 </div>
 
 
 <div class='col-lg-8'>
-<?php require 'chatTemp.php' ?>
+
+<div id='show-user'>
+
+</div>
+
+
+<form action="massage" method="post">
+    <div class='input-group'>
+    <textarea name="massage" id="" cols="30" rows="10" class='form-control'></textarea>
+    <input type="submit" value="Send" name='submit' class='btn btn-outline-primary'>
+    <input type="hidden" name="friendId" value=<?=$friend_id;?>>
+    </div>
+</form>
 </div>
 
 </div>

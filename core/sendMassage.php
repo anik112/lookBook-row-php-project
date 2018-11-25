@@ -11,14 +11,14 @@ $userName=(isset($_SESSION['name']))?$_SESSION['name']:null;
 
 if(isset($_POST['submit']) && $userId>0 && $userName!=null){
 
-    $friendId=$_POST['friendId'];
-    $massage=$_POST['massage'];
+    $friendId=$_POST['friendsId'];
+    // $massage=$_POST['massage'];
 
-    // add comment in comments table.
-    $insertMassage = $connect->prepare("INSERT INTO `massage`(`user_id`, `friends_id`,`friends_name`, `massage_date`, `massage_time`, `massage`)
-    VALUES 
-    ($friendId,$userId,'$userName',CURDATE(),CURTIME(),'$massage');");
-    $insertMassage->execute() or die('Sorry data not insert.. massage'); // statement execute
+    // // add comment in comments table.
+    // $insertMassage = $connect->prepare("INSERT INTO `massage`(`user_id`, `friends_id`,`friends_name`, `massage_date`, `massage_time`, `massage`)
+    // VALUES 
+    // ($friendId,$userId,'$userName',CURDATE(),CURTIME(),'$massage');");
+    // $insertMassage->execute() or die('Sorry data not insert.. massage'); // statement execute
 
 
 }

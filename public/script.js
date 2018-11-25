@@ -122,3 +122,23 @@ function showNotifi(idName) {
 function closeNotifi(idName) {
     document.getElementById(idName).style.display = "none";
 }
+
+
+function showMassages(id_number) {
+    var friends_id = id_number
+
+    if (friends_id != null) {
+        $.ajax({
+            url: "../core/sendMassage.php",
+            method: "POST",
+            data: {
+                friendsId: friends_id
+            },
+            dataType: "JSON",
+            success: function(data) {
+                print(data.massage)
+            }
+        })
+    }
+
+}
