@@ -1,7 +1,7 @@
 <?php
 
 $hostName='localhost'; // host name
-$dbName='my_protfolio'; // database name
+$dbName='LOOKBOOK'; // database name
 $dbUserName='root'; // database user name
 $dbPassword=''; // database password
 global $connect;
