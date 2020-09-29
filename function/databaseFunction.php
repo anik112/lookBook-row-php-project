@@ -177,7 +177,7 @@ if(!function_exists('getDataUsingColNameAndId')){
 if(!function_exists('getFriendsData')){
     function getFriendsData($connect,$userId){
         // execute queries and get data in variable
-        $getData = $connect->prepare("SELECT * FROM `users` WHERE id IN(SELECT friends_id FROM frendslist WHERE user_id=$userId);");
+        $getData = $connect->prepare("SELECT * FROM `tb_user_info` WHERE id IN(SELECT friends_id FROM frendslist WHERE user_id=$userId);");
         $getData->execute();
 
         // return data

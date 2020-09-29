@@ -1,7 +1,7 @@
 <?php
 
 $hostName='localhost'; // host name
-$dbName='LOOKBOOK'; // database name
+$dbName='lookbook'; // database name
 $dbUserName='root'; // database user name
 $dbPassword=''; // database password
 global $connect;
