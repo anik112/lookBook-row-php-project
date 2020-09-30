@@ -25,7 +25,7 @@ $password=null;
 $posts=null;
 
 // get user data from database
-$getUserData=getAllDataFromTableUsingId($connect,'users',$userId);
+$getUserData=getAllDataFromTableUsingId($connect,'tb_users_info',$userId);
 
 // discribe array object 
 foreach($getUserData as $user){
@@ -51,10 +51,12 @@ foreach($getUserData as $user){
 
 // make a function for get post data this user
 function getAllPosts($connect,$userId){
-    $getData = $connect->prepare("SELECT * FROM `posts` WHERE user_id=$userId ORDER BY id DESC;");
+    $getData = $connect->prepare("SELECT * FROM `tb_posts` WHERE user_id=$userId ORDER BY id DESC;");
     $getData->execute();
 
     return $getData->fetchAll(PDO::FETCH_OBJ);
 }
 // get this user all post
 $posts=getAllPosts($connect,$userId);
+
+?>

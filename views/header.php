@@ -39,7 +39,8 @@ if(isset($_SESSION['image'])){
     <a href="logout" class='btn btn-outline-info'>Logout</a>
     <a href="" class='btn btn-outline-info'>About</a>
     <img src='<?php if($image != null){
-                        echo $image;
+                        //echo $image;
+                        echo './images/avatar.png';
                     }else{
                         echo './images/avatar.png';
                     }?>' class='nav-bar-img border border-info p-1 ml-3' alt="profile pic" srcset="">

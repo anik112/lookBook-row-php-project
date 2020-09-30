@@ -23,10 +23,6 @@ if(isset($_POST['submit'])){
     // print_r($allData);
 
 
-    
-
-
-
     // get single data fom array.
     foreach($allData as $data){
         $databasePassword = $data->password; // get password which come from database.
@@ -49,7 +45,7 @@ if(isset($_POST['submit'])){
 
         echo $userId;
         // write quriey for get data from database.
-        $getActiveStatus = $connect->prepare("SELECT * FROM active_status WHERE user_id='$userId';");
+        $getActiveStatus = $connect->prepare("SELECT * FROM tb_active_status WHERE user_id='$userId';");
         $getActiveStatus->execute(); //query execute.
         $activeStatus=$getActiveStatus->fetchAll(PDO::FETCH_OBJ); // petch data in a array.
 
@@ -57,12 +53,12 @@ if(isset($_POST['submit'])){
         // otherwise create a new sattus.
         if($activeStatus == null){
             // add active status in database
-            $insertActiveStatus = $connect->prepare("INSERT INTO `active_status`(`user_id`, `last_activity_date`, `last_activity_time`, `login_status`)
+            $insertActiveStatus = $connect->prepare("INSERT INTO `tb_active_status`(`user_id`, `last_activity_date`, `last_activity_time`, `login_status`)
             VALUES ($userId,CURDATE(),CURTIME(),true);");
             $insertActiveStatus->execute() or die('Sorry data not insert.. ative status insert'); // statement execute
         }else{
             // update active status in database
-            $updateActiveStatus = $connect->prepare("UPDATE `active_status` SET 
+            $updateActiveStatus = $connect->prepare("UPDATE `tb_active_status` SET 
             `last_activity_date`=CURDATE(),
             `last_activity_time`=CURTIME(),
             `login_status`=true

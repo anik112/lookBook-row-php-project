@@ -30,7 +30,8 @@ require 'header.php'; // require header file
 
 
 <!-- body container -->
-<div class='row bg-cover mb-5 mt-3'>
+<div class="bg-light p-3">
+<div class='row bg-cover mb-5 mt-3 rounded' style="width: 80%;">
     <div class='col-lg-12 py-5 px-5 up-cover'>
 
         <div class='float-left px-5'>
@@ -107,6 +108,9 @@ require 'header.php'; // require header file
         }
         </script>
     </div>
+</div>
+
+
 </div>
 
 <!-- main contant box -->
